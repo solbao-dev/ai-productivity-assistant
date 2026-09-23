@@ -4,10 +4,18 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "index.html"
+      - "dist/**"
+      - "staticwebapp.config.json"
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+    paths:
+      - "index.html"
+      - "dist/**"
+      - "staticwebapp.config.json"
 
 jobs:
   build_and_deploy_job:
