@@ -1,11 +1,19 @@
-# TabDone
+<p align="center">
+  <img src="./favicon.svg" alt="TabDone logo" width="92" height="92">
+</p>
 
-> **One tab. One focus. Get it done.**  
-> 한 탭에서 정하고, 집중하고, 끝내는 security-first productivity assistant
+<h1 align="center">TabDone</h1>
 
-**Productivity Assistant · Focus Session**  
-**Lipcoding 2026 · Challenge Project**  
-`JavaScript` `Product Design` `Security` `Privacy` `GitHub Models (prototype)`
+<p align="center">
+  <strong>One tab. One focus. Get it done.</strong><br>
+  한 탭에서 정하고, 집중하고, 끝내는 security-first productivity assistant
+</p>
+
+<p align="center">
+  <strong>Productivity Assistant · Focus Session</strong><br>
+  <strong>Lipcoding 2026 · Challenge Project</strong><br>
+  <code>JavaScript</code> <code>Product Design</code> <code>Security</code> <code>Privacy</code> <code>GitHub Models (prototype)</code>
+</p>
 
 ---
 
