@@ -176,8 +176,8 @@ Backend / BFF
 ## Local Development | 로컬 실행
 
 ```bash
-git clone <repository-url>
-cd ai-productivity-assistant
+git clone https://github.com/solbao-dev/tabdone-productivity-assistant.git
+cd tabdone-productivity-assistant
 python3 -m http.server 8000
 ```
 
