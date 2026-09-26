@@ -53,6 +53,14 @@ Close the tab and end the session
 
 현재 공개판은 **credential-free, rule-based focus assistant**입니다. 중요도·긴급도·예상 시간을 기반으로 브라우저 안에서 우선순위를 계산합니다.
 
+## Deployment Journey | 배포 전환
+
+The hackathon build was originally deployed with **Azure Static Web Apps** as part of the challenge deployment environment. After the hackathon ended, that Azure deployment was retired. The public portfolio build was then redesigned as a credential-free static application and moved to **GitHub Pages**.
+
+해커톤 당시에는 과제/행사 환경에서 사용한 배포 방식에 맞춰 **Azure Static Web Apps**로 배포했습니다. 해커톤 종료 후 Azure 배포를 종료했고, 공개 포트폴리오 버전은 credential을 요구하지 않는 정적 애플리케이션으로 재설계한 뒤 **GitHub Pages**로 배포 대상을 전환했습니다.
+
+현재 운영과 과거 배포 이력을 혼동하지 않도록 오래된 Azure CI/CD workflow는 `main`에서 제거했으며, **Azure를 사용했던 이유·종료 과정·GitHub Pages 전환 과정은 `docs/deployment-history.md`와 Git history에 별도로 보존**합니다.
+
 ## Public Features | 공개판 기능
 
 - Add and prioritize tasks | 할 일 추가 및 우선순위 계산
@@ -178,6 +186,8 @@ python3 -m http.server 8000
 ## What I Learned | 배운 점
 
 이 프로젝트를 통해 **사용자의 실제 행동 문제에서 제품을 정의하고, 그 제품 의도를 기술 선택으로 연결하는 과정**을 경험했습니다. 장기 task manager가 아니라 집중 실행 세션이라는 컨셉에 맞춰 `sessionStorage`를 선택했고, 공개 배포에서는 credential 위험을 검토해 기능 범위를 재설계했습니다. 이를 통해 기능을 더 많이 넣는 것보다 사용자의 행동 흐름, 보안, 데이터 보관 원칙이 일관되게 연결되는 것이 중요하다는 점을 학습했습니다.
+
+또한 해커톤 당시의 Azure 배포 환경을 종료한 뒤 GitHub Pages로 전환하면서, **현재 운영에 필요 없는 CI/CD는 제거하되 과거의 기술적 의사결정과 배포 이력은 문서와 Git history로 남기는 방식**으로 프로젝트 기록을 정리했습니다.
 
 ---
 
