@@ -8,11 +8,21 @@
 
 ---
 
+## Why I Built This | 개발 배경
+
+This project started from a familiar digital habit: finding useful information on Instagram, saving it for later, and rarely returning to it. The same pattern appeared while working — many browser tabs stayed open as reminders of things to read or do, but the growing number of tabs created more distraction than progress.
+
+이 프로젝트는 아주 일상적인 경험에서 시작했습니다. **인스타그램에서 유용한 정보를 발견해 저장해두지만 다시 보지 않는 경험**, 그리고 나중에 해야 할 일이나 읽어야 할 자료를 잊지 않으려고 **브라우저 탭을 여러 개 열어두지만 오히려 무엇에 집중해야 할지 흐려지는 경험**이 반복됐습니다.
+
+문제는 정보를 더 많이 저장하는 것이 아니라, **저장한 것을 실제 행동으로 전환하고 한 번에 하나에 집중하는 것**이라고 생각했습니다. 그래서 또 하나의 장기 보관형 Todo 앱을 만드는 대신, 하나의 탭 안에서 지금 해야 할 일을 정하고 실행한 뒤 세션 자체를 끝내는 도구를 기획했습니다.
+
+> **Save less. Decide what matters. Focus in one tab. Finish the session.**
+>
+> 더 많이 쌓아두기보다, 지금 중요한 일을 결정하고 한 탭에서 집중해 끝내는 경험을 목표로 합니다.
+
 ## Product Concept | 서비스 컨셉
 
 이 프로젝트의 핵심은 장기적인 할 일 보관이 아니라 **“한 번 앉았을 때 무엇부터 할지 결정하고, 집중해서 하나씩 끝내는 실행 세션”**입니다.
-
-사용 흐름은 명확합니다.
 
 ```text
 Open one tab
@@ -32,9 +42,11 @@ Close the tab and end the session
 
 즉, 이 앱에서 **하나의 탭 = 하나의 집중 세션**입니다. 사용자는 탭을 열어 오늘 처리할 일을 정리하고, 우선순위와 스톱워치를 이용해 실행에 집중합니다. 완료한 작업은 즉시 제거할 수 있고, 세션을 마치면 탭을 닫아 작업 흐름도 함께 종료합니다.
 
-## Overview | 프로젝트 소개
+## Product Perspective | 제품 관점
 
-초기 프로토타입에서는 GitHub Models API를 이용해 AI가 우선순위, 예상 시간, 분류와 이유를 분석하도록 구현했습니다. 공개 배포를 준비하면서 credential과 데이터 흐름을 검토했고, 정적 클라이언트 포트폴리오가 방문자의 GitHub PAT를 직접 요구하고 처리하지 않도록 공개판을 재설계했습니다.
+서비스의 출발점은 **“어떻게 더 많이 저장할까?”가 아니라 “어떻게 실제 실행으로 이어지게 할까?”**입니다. Service & Marketing 도메인 경험을 바탕으로 기술 자체를 전면에 내세우기보다, 사용자의 행동과 집중 흐름을 먼저 정의하고 이에 맞춰 기능과 데이터 보관 방식을 결정했습니다.
+
+초기 프로토타입에서는 GitHub Models API를 이용해 AI가 우선순위, 예상 시간, 분류와 이유를 분석하도록 구현했습니다. 공개 배포를 준비하면서 credential과 데이터 흐름을 검토했고, 정적 클라이언트가 방문자의 GitHub PAT를 직접 요구하지 않도록 공개판을 재설계했습니다.
 
 현재 공개판은 **credential-free, rule-based focus assistant**입니다. 중요도·긴급도·예상 시간을 기반으로 브라우저 안에서 우선순위를 계산합니다.
 
@@ -162,7 +174,7 @@ python3 -m http.server 8000
 
 ## What I Learned | 배운 점
 
-이 프로젝트를 통해 기능 구현과 공개 배포의 적합성은 별도로 검토해야 하며, **제품의 사용 의도에 따라 데이터 보관 방식도 달라져야 한다**는 점을 학습했습니다. 장기 task manager가 아니라 집중 실행 세션이라는 제품 컨셉에 맞춰 `sessionStorage`를 선택하고, 사용자 신뢰와 서비스 경험을 개발 의사결정에 연결했습니다.
+이 프로젝트를 통해 **사용자의 실제 행동 문제에서 제품을 정의하고, 그 제품 의도를 기술 선택으로 연결하는 과정**을 경험했습니다. 장기 task manager가 아니라 집중 실행 세션이라는 컨셉에 맞춰 `sessionStorage`를 선택했고, 공개 배포에서는 credential 위험을 검토해 기능 범위를 재설계했습니다. 이를 통해 기능을 더 많이 넣는 것보다 사용자의 행동 흐름, 보안, 데이터 보관 원칙이 일관되게 연결되는 것이 중요하다는 점을 학습했습니다.
 
 ---
 
