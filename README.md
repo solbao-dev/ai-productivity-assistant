@@ -47,6 +47,22 @@ Security was treated as a deployment requirement, not an afterthought.
 
 보안은 배포 후 추가하는 옵션이 아니라 **공개 여부를 결정하는 핵심 요구사항**으로 다뤘습니다.
 
+### Data storage & retention | 데이터 저장 및 보관
+
+현재 공개판에서 데이터는 종류에 따라 다음과 같이 처리됩니다.
+
+| Data | Where it exists | Retention | External transmission |
+|---|---|---|---|
+| 할 일 내용 | 현재 브라우저 탭의 JavaScript 메모리 | 새로고침·탭 종료 시 사라짐. `전체 초기화`로 즉시 삭제 가능 | 없음 |
+| 중요도·긴급도·예상 시간 | 현재 브라우저 탭의 JavaScript 메모리 | 할 일과 동일 | 없음 |
+| 계산된 우선순위 | 브라우저에서 즉시 계산 | 현재 페이지 세션 동안만 존재 | 없음 |
+| Light/Dark 테마 선택 | 해당 브라우저의 `localStorage` (`pa-theme`) | 앱이 별도 만료기간을 설정하지 않음. 사용자가 테마를 다시 선택하거나 사이트 데이터를 삭제할 때 변경·삭제됨 | 없음 |
+| PAT / API key | 수집·입력하지 않음 | 저장되지 않음 | 없음 |
+
+즉, **할 일 데이터는 `localStorage`, `sessionStorage`, cookie 또는 서버 데이터베이스에 저장하지 않습니다.** 현재 탭의 메모리에서만 처리되므로 페이지를 새로고침하거나 탭을 닫으면 복구할 수 없습니다. 반면 테마 설정만 사용 편의를 위해 `localStorage`에 저장하며, 이 값은 `light` 또는 `dark`뿐입니다.
+
+브라우저 자체의 캐시, 방문 기록, 호스팅 인프라가 플랫폼 운영 목적으로 처리할 수 있는 네트워크·접속 정보는 이 애플리케이션의 JavaScript 데이터 저장 기능과 별개의 영역입니다. 이 프로젝트는 방문자의 할 일 데이터를 자체 서버로 수집하거나 보관하는 백엔드를 운영하지 않습니다.
+
 ### Security review process | 보안 검토 과정
 
 공개 배포 전 다음 순서로 구조를 재검토했습니다.
@@ -66,6 +82,7 @@ Security was treated as a deployment requirement, not an afterthought.
 - **No GitHub PAT input** — 방문자의 GitHub PAT를 요구하지 않습니다.
 - **No API-key input** — 다른 API key도 요구하지 않습니다.
 - **No credential persistence** — `localStorage`, `sessionStorage`, cookie 등에 credential을 저장하지 않습니다.
+- **No task persistence** — 할 일 데이터는 현재 탭의 메모리에만 존재하며 브라우저 저장소나 서버에 영구 저장하지 않습니다.
 - **No external AI request** — 공개판에서 GitHub Models 또는 다른 AI API를 호출하지 않습니다.
 - **No task transmission** — 현재 우선순위 계산을 위해 할 일 내용을 외부 서버로 전송하지 않습니다.
 - **No hidden AI claim** — 규칙 기반 결과를 AI 결과처럼 표현하지 않습니다.
@@ -108,12 +125,14 @@ Browser
 
 ```text
 Browser
-  ├─ Task input
-  ├─ Importance / urgency / estimated time
+  ├─ Task input (memory only)
+  ├─ Importance / urgency / estimated time (memory only)
   └─ Local rule-based scoring
           ↓
      Priority result
 
+Task persistence: none
+Theme preference: localStorage only
 Credentials: none
 External AI requests: none
 ```
