@@ -32,6 +32,8 @@ The product begins with one user question: **“What should I do first?”** My 
 - Full in-memory reset | 현재 페이지 데이터 전체 초기화
 - No credential input | 토큰·API 키 입력 없음
 - No external AI/API request | 외부 AI/API 호출 없음
+- Responsive layout | 데스크톱·태블릿·모바일 대응
+- Light/Dark theme | 시스템 설정 연동 및 사용자 직접 전환
 
 > **Important:** The public result is not presented as AI output. It is explicitly labeled as rule-based prioritization.
 >
@@ -74,7 +76,7 @@ Security was treated as a deployment requirement, not an afterthought.
 
 보안을 중요하게 다뤘다는 것이 **절대적인 안전을 보장한다는 뜻은 아닙니다.** 브라우저, 운영체제, 호스팅 플랫폼, 사용자 기기 자체가 침해된 상황까지 이 정적 애플리케이션이 방어할 수는 없습니다.
 
-또한 현재 공개판은 credential을 제거했기 때문에 AI 기반 개인화 분석을 제공하지 않습니다. 이는 기능상의 trade-off이며, 공개 포트폴리오에서 사용자 credential을 직접 취급하지 않기 위해 의도적으로 선택했습니다.
+현재 공개판은 credential을 제거했기 때문에 AI 기반 개인화 분석을 제공하지 않습니다. 이는 공개 포트폴리오에서 사용자 credential을 직접 취급하지 않기 위해 선택한 기능상의 trade-off입니다.
 
 ### Security trade-off | 선택의 장단점
 
@@ -100,7 +102,7 @@ Browser
      GitHub Models API
 ```
 
-AI 기능 자체는 동작했지만, 공개 정적 웹사이트가 방문자의 PAT를 직접 취급한다는 점이 배포 기준과 맞지 않았습니다.
+초기 프로토타입의 구조를 공개 배포 관점에서 검토한 결과, 정적 웹사이트가 방문자의 PAT를 직접 취급하는 방식은 현재 공개판의 보안 원칙과 맞지 않았습니다.
 
 ### Public portfolio build | 현재 공개판
 
@@ -138,7 +140,7 @@ Backend / BFF
 
 ## Original AI Work | 기존 AI 구현 기록
 
-초기 프로토타입에서는 다음을 실제로 구현하고 검토했습니다.
+초기 프로토타입에서는 다음을 구현하고 검토했습니다.
 
 - GitHub Models API integration
 - `gpt-4o-mini` task analysis
@@ -185,9 +187,9 @@ ai-productivity-assistant/
 
 ## What I Learned | 배운 점
 
-This project reinforced that shipping a product is not only about making a feature work. A feature that works technically can still be the wrong feature to expose publicly if its trust and security model is not appropriate for the deployment architecture.
+This project reinforced that shipping a product is not only about making a feature work. A feature can be technically valid while still being inappropriate for a particular public deployment architecture if its trust and security model does not fit that environment.
 
-이 프로젝트를 통해 **기능이 동작한다는 사실과 그 기능을 공개해도 된다는 판단은 서로 다르다**는 점을 배웠습니다. 초기 AI 기능을 그대로 유지하는 것보다 credential 흐름, 데이터 흐름, 배포 구조와 사용자 신뢰를 함께 검토해 기능을 줄이는 것이 더 적절하다고 판단했습니다.
+이 프로젝트를 통해 **기능 구현과 공개 배포의 적합성은 별도로 검토해야 한다**는 점을 배웠습니다. credential 흐름, 데이터 흐름, 배포 구조와 사용자 신뢰를 함께 검토해 공개판의 기능 범위를 결정했습니다.
 
 Service & Marketing 관점에서 중요하게 생각해 온 **사용자 신뢰와 서비스 경험**을 개발 의사결정에도 연결한 프로젝트입니다.
 
