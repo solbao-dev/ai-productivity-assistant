@@ -1,8 +1,9 @@
-# AI Productivity Assistant
+# TabDone
 
-> **One tab, one focused execution session — security-first public edition**  
-> 할 일을 정리하고 우선순위대로 한 번에 실행한 뒤, 탭과 함께 세션을 끝내는 생산성 도우미
+> **One tab. One focus. Get it done.**  
+> 한 탭에서 정하고, 집중하고, 끝내는 security-first productivity assistant
 
+**Productivity Assistant · Focus Session**  
 **Lipcoding 2026 · Challenge Project**  
 `JavaScript` `Product Design` `Security` `Privacy` `GitHub Models (prototype)`
 
@@ -22,6 +23,8 @@ This project started from a familiar digital habit: finding useful information o
 
 ## Product Concept | 서비스 컨셉
 
+**TabDone**이라는 이름은 `Tab + Done`에서 출발합니다. 여러 탭에 해야 할 일을 쌓아두는 대신 **하나의 탭을 하나의 집중 세션으로 사용하고, 그 안에서 일을 실제로 끝낸다**는 제품 철학을 담았습니다.
+
 이 프로젝트의 핵심은 장기적인 할 일 보관이 아니라 **“한 번 앉았을 때 무엇부터 할지 결정하고, 집중해서 하나씩 끝내는 실행 세션”**입니다.
 
 ```text
@@ -40,7 +43,7 @@ Complete tasks one by one
 Close the tab and end the session
 ```
 
-즉, 이 앱에서 **하나의 탭 = 하나의 집중 세션**입니다. 사용자는 탭을 열어 오늘 처리할 일을 정리하고, 우선순위와 스톱워치를 이용해 실행에 집중합니다. 완료한 작업은 즉시 제거할 수 있고, 세션을 마치면 탭을 닫아 작업 흐름도 함께 종료합니다.
+즉, **하나의 탭 = 하나의 집중 세션**입니다. 사용자는 탭을 열어 오늘 처리할 일을 정리하고, 우선순위와 스톱워치를 이용해 실행에 집중합니다. 완료한 작업은 즉시 제거할 수 있고, 세션을 마치면 탭을 닫아 작업 흐름도 함께 종료합니다.
 
 ## Product Perspective | 제품 관점
 
@@ -130,7 +133,7 @@ Browser + User PAT
 GitHub Models API
 ```
 
-### Public focus-session build
+### TabDone public build
 
 ```text
 Browser tab
@@ -178,4 +181,4 @@ python3 -m http.server 8000
 
 ---
 
-Built for **Lipcoding 2026** · `Challenges & Hackathons`
+**TabDone** · Built for **Lipcoding 2026** · `Challenges & Hackathons`
